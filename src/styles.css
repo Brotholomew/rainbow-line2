@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/hover.css';
+
+@font-face {
+    font-family: PoiretOne;
+    font-weight: regular;
+    src: url('fonts/PoiretOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: UbuntuMedium;
+    font-weight: medium;
+    src: url('fonts/Ubuntu-Medium.ttf')
+}
+
+@font-face {
+    font-family: OpenSans;
+    font-weight: regular;
+    src: url('fonts/OpenSans-Regular.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h3, h2, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-family: PoiretOne;
+    font-size: 11vw;
+    /* font-weight: bolder; */
+    color: white;
+    font-weight: normal;
+    text-align: center;
+}
+
+h2 {
+    font-size: 5vw;
+    color: black;
+    font-family: PoiretOne;
+}
+
+p {
+    font-family: OpenSans;
+    color: black;
+    font-size: 1.5vw;
+    text-align: justify;
+}
