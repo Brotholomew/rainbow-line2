@@ -18,6 +18,18 @@
     src: url('fonts/OpenSans-Regular.ttf');
 }
 
+@font-face {
+    font-family: Roboto;
+    font-weight: regular;
+    src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: Lato;
+    font-weight: regular;
+    src: url('fonts/Lato-Regular.ttf');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -41,10 +53,11 @@ h2 {
     font-size: 5vw;
     color: black;
     font-family: PoiretOne;
+    margin-bottom: 1.5vw;
 }
 
 p {
-    font-family: OpenSans;
+    font-family: Roboto;
     color: black;
     font-size: 1.5vw;
     text-align: justify;

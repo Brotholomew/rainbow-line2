@@ -1,4 +1,4 @@
-<div class="main-wrapper">
+<div class="main-wrapper" id="main-wrapper">
     <div class="logo-wrapper">
         <h3>tęczowa linia</h3>
        <!-- <a class="hvr-wobble-vertical"><i class="fas fa-angle-double-down hvr-icon"></i></a> -->
@@ -8,10 +8,17 @@
     </div>  
     <div class="first-para">
         <h2>Kim jesteśmy?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, perferendis. Debitis modi, veritatis corrupti saepe nulla fugiat culpa dolores dolor, iste accusamus ad expedita eum ipsa. Quibusdam temporibus minus sunt.</p>
+        <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, perferendis. Debitis modi, veritatis corrupti saepe nulla fugiat culpa dolores dolor, iste accusamus ad expedita eum ipsa. Quibusdam temporibus minus sunt.</p>
     </div>
     <div class="second-para">
-        <h2>Disclaimer</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quibusdam quidem, quis ipsa ad autem obcaecati dolorem maxime quae eaque incidunt saepe optio numquam nisi quod dignissimos vitae, ea quia!</p>
+        <h2 style="color: white">Disclaimer</h2>
+        <p style="color: white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quibusdam quidem, quis ipsa ad autem obcaecati dolorem maxime quae eaque incidunt saepe optio numquam nisi quod dignissimos vitae, ea quia!</p>
+    </div>
+    <div class="third-para">
+        <app-details *ngIf="this.deviceDetector.isMobile() === false"></app-details>
+        <app-details-mobile *ngIf="this.deviceDetector.isMobile() === true"></app-details-mobile>
+    </div>
+    <div class="chat" id="chat">
+        <app-chat></app-chat>
     </div>
 </div>

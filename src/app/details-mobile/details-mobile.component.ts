@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-details-mobile',
+  templateUrl: './details-mobile.component.html',
+  styleUrls: ['./details-mobile.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DetailsMobileComponent implements OnInit {
 
   constructor(
     public deviceDetector: DeviceDetectorService,

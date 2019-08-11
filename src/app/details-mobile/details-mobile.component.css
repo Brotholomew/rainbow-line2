@@ -1,0 +1,19 @@
+h2 {
+    text-align: center;
+}
+
+.line {
+    border-top: 3px solid grey;
+    margin-top: 6vw;
+    margin-bottom: 6vw;
+    width: 80%;
+    justify-self: center;
+    align-self: center;
+}
+
+.mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}

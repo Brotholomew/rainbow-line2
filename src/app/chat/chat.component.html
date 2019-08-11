@@ -1,0 +1,17 @@
+<div class="chat-box" id="chat-box">
+    <div class="header" id="header">
+        Rozmawiasz z tęczowa linia
+    </div>
+    <div class="messages" id="messages">
+        chuj
+        <div *ngFor="let message of user.messages, index as i">
+            <div *ngIf="message.senderID === this.user.user.ID"></div>
+            <div *ngIf="message.senderID !== this.user.user.ID"></div>
+        </div>
+        
+    </div>
+    <div class="input-box" id="input-box">
+        <input class="input" style="width: 100%" type="text" [formControl]="messageContent" (keyup.enter)="onSend()"/>
+        <button class="send"(click)="onSend()" ><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
