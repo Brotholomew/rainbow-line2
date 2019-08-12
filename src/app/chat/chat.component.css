@@ -1,6 +1,22 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: black;
+    font-family: OpenSans;
+    font-weight: bolder;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: white;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: white;
+  }
+
 .chat-box {
-    grid-template-columns: [firts] auto [second] 20vw [third];
-    grid-template-rows: [first] 5vw [second] auto [third] 100vh [fourth];
+    display: grid;
+    grid-template-columns: [firts] auto [second] auto [third];
+    grid-template-rows: [first] auto [second] auto [third] auto [fourth];
 }
 
 .input-box {
@@ -8,30 +24,124 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
-    border-top: 1px solid grey;
+    background-color: #bfc4e4;
+    /*border-top: 1px solid lightgrey;*/
+    
 }
 
 .header {
     grid-area: 1 / 1 / 2 / 3;
-    display: flex;
-    justify-content: space-between;
+
+
     font-size: 0;
+    /*border-top: 1px solid lightgrey;*/
 }
 
 .messages {
+    /*border-top: 1px solid lightgrey;*/    
     grid-area: 2 / 1 / 3 / 3;
-    background-color: grey;
+    background-color: white;
     font-size: 0;
+    display: flex;
+    font-family: OpenSans;
+    width: 100%;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .input {
     width: 100%;
     border: 0;
-
+    word-wrap: break-word;
+    font-family: OpenSans;
+    resize: none;
+    outline: none;
+    background-color: #bfc4e4;
+    color: black;
+    height: 0px;
 }
 
 .send {
     background-color: transparent;
     border: 0;
-    font-size:  20px;
+    font-size:  15px;
+    color: black;
+}
+
+.sender-cloud {
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+    background-color: #bfc4e4;
+    align-self: flex-end;
+    max-width: 80vw;
+    padding: 10px;
+    margin: 2px;
+    margin-right: 10px;
+    word-wrap: break-word;
+    font-size: 15px;
+}
+
+.recipient-cloud {
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    background-color: #e3e3df;
+    align-self: flex-start;
+    max-width: 80%;
+    padding: 10px;
+    margin: 2px;
+    margin-left: 10px;
+    font-size: 15px;
+    word-wrap: break-word;
+}
+
+.cloud-holder {
+    display: flex;
+    flex-direction: column;
+}
+
+.status-favicon {
+    height: 1vw;
+    width: 1vw;
+    grid-area: 2 / 2 / 3 / 3;
+    background-color: grey;
+    z-index: 2;
+    border-radius: 1vw;
+}
+
+.logo-favicon {
+    width: 3vw;
+    height: 3vw;
+    grid-area: 1 / 1 / 3 / 3;
+    z-index: 1;
+}
+
+.status-favicon-wrapper {
+    display: grid;
+    grid-template-rows: [first] 2vw [second] 1vw [third];
+    grid-template-columns: [first] 2vw [second] 1vw [third];
+    padding: 5px;
+}
+
+.side-menu {
+    grid-area: 2 / 2 / 3 / 4;
+}
+
+.type-info {
+    background-color: grey;
+    border-radius: 5px;
+    color: white;
+    font-family: OpenSans;
+    padding: 4px;
+    font-size: 20px;
+}
+
+.header-content {
+    color: black;
+    font-size: 40px;
+    font-family: PoiretOne;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
 }

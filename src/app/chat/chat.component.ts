@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormControl } from '@angular/forms';
-import { message } from '../message';
 
 @Component({
   selector: 'app-chat',
@@ -10,8 +9,10 @@ import { message } from '../message';
 })
 export class ChatComponent implements OnInit {
 
+  chatBubbleColors = ['#e5324f', '#e5324f', '#e5324f', '#cfe293', '#b2e2f9', '#bfc4e4'];
   expanded = false;
   height: string;
+  showSideMenu = false;
 
   constructor(
     public user: UserService,
@@ -20,27 +21,41 @@ export class ChatComponent implements OnInit {
   messageContent = new FormControl('');
 
   ngOnInit() {
+    let messagesCount = 0;
+    var shouldScroll = () => {
+      let input = document.getElementById('input-box');
+      let messages = document.getElementById('messages');
+      let header = document.getElementById('header');
+      let inputHeight = input.clientHeight * 100 / window.innerHeight;
+      let headerHeight = header.clientHeight * 100 / window.innerHeight;
+      this.height = (100 - inputHeight - headerHeight) + 'vh';
+      messages.style.gridArea = this.showSideMenu ? '2 / 1 / 3 / 2' : '2 / 1 / 3 / 3';
+      input.style.gridArea = this.showSideMenu ? '3 / 1 / 4 / 2' : '3 / 1 / 4 / 3';
+      if (this.expanded === true) {
+        messages.style.height = this.height;        
+      }
+      if (messages.scrollHeight > messages.clientHeight && this.user.messages.length !== messagesCount) {
+        messages.scrollTop = messages.scrollHeight;
+      };
+      messagesCount = this.user.messages.length;
+    };
+    
+    setInterval(shouldScroll, 1);
   }
 
   onSend() {
-    //window.alert(this.messageContent.value);
+    if (this.expanded === false && this.messageContent.value !== '')
+      {this.expand();}
+    if (this.messageContent.value !== '')
+      {this.user.sendMessage(this.user.user, this.messageContent.value);}
     this.messageContent.reset();
-    if (this.expanded === false)
-      this.expand();
   }
 
   expand() {
     this.expanded = true;
-    let messages = document.getElementById('messages');
-    let header = document.getElementById('header');
-    let input = document.getElementById('input-box');
-    messages.style.fontSize = '20px';
-    header.style.fontSize = '20px';
-    let inputHeight = input.clientHeight * 100 / window.innerHeight;
-    let headerHeight = header.clientHeight * 100 / window.innerHeight;
-    this.height = (100 - inputHeight - headerHeight) + 'vh';
     let wrapper = document.getElementById('main-wrapper');
-    messages.style.height = this.height;
+    let messages = document.getElementById('messages');
+    messages.style.height = this.height;        
     wrapper.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   }
 

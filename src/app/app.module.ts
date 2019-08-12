@@ -11,6 +11,7 @@ import { ChatComponent } from './chat/chat.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AutosizeModule } from 'ngx-autosize';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DeviceDetectorModule.forRoot(),
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AutosizeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
